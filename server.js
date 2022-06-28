@@ -15,6 +15,10 @@ server.on("error", error => console.log(`Error on the server ${error}`));
 // Crea instancia del contenedor
 const product = new Container('products.txt');
 
+app.get('/', (req, res) => {
+    res.send('<h1 style="color:blue;">Bienvenidos al servidor express</h1>')
+});
+
 // endpoints productos
 app.get('/productos', async (req, res) => {
     const products = await product.getAll();
